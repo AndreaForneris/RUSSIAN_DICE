@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyka6s1rmw6x"]
+
+[ext_resource type="PackedScene" uid="uid://cr8rrm1t7u2v8" path="res://scene/Mr.Dice/Mr.Dice.blend" id="1_ovd87"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Mr_Dice" parent="." instance=ExtResource("1_ovd87")]

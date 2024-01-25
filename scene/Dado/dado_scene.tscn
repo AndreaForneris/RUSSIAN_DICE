@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4ixih5g7jcd0"]
+
+[ext_resource type="PackedScene" uid="uid://sc7syb6j5jst" path="res://scene/Dado/Dado.blend" id="1_k3v8i"]
+[ext_resource type="Script" path="res://scene/Dado/dado_script.gd" id="1_p8ojc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3mng3"]
+bounce = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p23k6"]
+size = Vector3(0.04, 0.04, 0.04)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+visible = false
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_3mng3")
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_p8ojc")
+
+[node name="Dado" parent="RigidBody3D" instance=ExtResource("1_k3v8i")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20699e-05, 0.0201927, 0)
+shape = SubResource("BoxShape3D_p23k6")
+
+[node name="Timer" type="Timer" parent="RigidBody3D"]
+one_shot = true
+
+[connection signal="timeout" from="RigidBody3D/Timer" to="RigidBody3D" method="_on_timer_timeout"]
