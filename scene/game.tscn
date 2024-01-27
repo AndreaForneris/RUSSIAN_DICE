@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://csl5h1dupvm8k"]
+[gd_scene load_steps=7 format=3 uid="uid://csl5h1dupvm8k"]
 
 [ext_resource type="PackedScene" uid="uid://bj2fe5h1a7if7" path="res://scene/Tavolo/tavolo_scene.tscn" id="1_5i55m"]
 [ext_resource type="PackedScene" uid="uid://c4ixih5g7jcd0" path="res://scene/Dado/dado_scene.tscn" id="2_wmoly"]
 [ext_resource type="PackedScene" uid="uid://dyka6s1rmw6x" path="res://scene/Mr.Dice/mr.dice_scene.tscn" id="3_vyk52"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y15px"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_a3ujc"]
+sky_material = SubResource("ProceduralSkyMaterial_y15px")
+
+[sub_resource type="Environment" id="Environment_gh40w"]
+background_mode = 2
+sky = SubResource("Sky_a3ujc")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
 
 [node name="Game" type="Node3D"]
 
@@ -11,13 +25,19 @@
 [node name="Mr_Dice" parent="." instance=ExtResource("3_vyk52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.38883)
 
-[node name="Dado" parent="." instance=ExtResource("2_wmoly")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43093, 3.68528, 2.62868)
+[node name="Dado1" parent="." instance=ExtResource("2_wmoly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63999, 3.68528, 2.62868)
+
+[node name="Dado2" parent="." instance=ExtResource("2_wmoly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6208, 3.72633, 2.99228)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.942874, 0.333149, 0, -0.333149, 0.942874, 0, 5.42499, 6.17042)
+transform = Transform3D(1, 0, 0, 0, 0.942874, 0.333149, 0, -0.333149, 0.942874, 0, 5.5416, 5.24413)
 
 [node name="Light" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.8341, -2.98727e-07)
 spot_range = 15.0
 spot_attenuation = 0.406126
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gh40w")

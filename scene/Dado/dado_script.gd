@@ -34,4 +34,3 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
 	lancia = true
-	print("yoyo")
