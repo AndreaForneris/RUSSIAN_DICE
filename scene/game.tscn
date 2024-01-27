@@ -9,13 +9,15 @@
 [node name="Tavolo" parent="." instance=ExtResource("1_5i55m")]
 
 [node name="Mr_Dice" parent="." instance=ExtResource("3_vyk52")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.43788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.38883)
 
 [node name="Dado" parent="." instance=ExtResource("2_wmoly")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701178, 1.20729, 0.964503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43093, 3.68528, 2.62868)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.942874, 0.333149, 0, -0.333149, 0.942874, 0, 1.88353, 2.18244)
+transform = Transform3D(1, 0, 0, 0, 0.942874, 0.333149, 0, -0.333149, 0.942874, 0, 5.42499, 6.17042)
 
 [node name="Light" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.12639, -5.52481e-09)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.8341, -2.98727e-07)
+spot_range = 15.0
+spot_attenuation = 0.406126

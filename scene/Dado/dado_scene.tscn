@@ -7,7 +7,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_auvsw"]
 margin = 0.0
-size = Vector3(0.045, 0.045, 0.045)
+size = Vector3(0.21, 0.21, 0.21)
 
 [node name="Node3D" type="Node3D"]
 
@@ -18,14 +18,12 @@ freeze_mode = 1
 script = ExtResource("1_p8ojc")
 forzaMax = -1
 forzaMin = -0.5
-forzaRotaz = 2
-metadata/_edit_group_ = true
+forzaRotaz = 3
 
 [node name="Dado" parent="RigidBody3D" instance=ExtResource("1_k3v8i")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0198209, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100032, 0)
 shape = SubResource("BoxShape3D_auvsw")
 
 [node name="Timer" type="Timer" parent="RigidBody3D"]
