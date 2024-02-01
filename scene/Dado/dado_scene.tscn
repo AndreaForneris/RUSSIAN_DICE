@@ -30,4 +30,6 @@ shape = SubResource("BoxShape3D_auvsw")
 [node name="Timer" type="Timer" parent="RigidBody3D"]
 one_shot = true
 
+[node name="Raycasts" type="Node3D" parent="RigidBody3D"]
+
 [connection signal="timeout" from="RigidBody3D/Timer" to="RigidBody3D" method="_on_timer_timeout"]
