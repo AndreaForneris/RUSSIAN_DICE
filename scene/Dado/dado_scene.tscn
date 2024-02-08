@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4ixih5g7jcd0"]
+[gd_scene load_steps=6 format=3 uid="uid://c4ixih5g7jcd0"]
 
 [ext_resource type="PackedScene" uid="uid://sc7syb6j5jst" path="res://scene/Dado/Dado.blend" id="1_k3v8i"]
 [ext_resource type="Script" path="res://scene/Dado/dado_script.gd" id="1_p8ojc"]
+[ext_resource type="PackedScene" uid="uid://cctga84jakikb" path="res://scene/Dado/raycastDado_scene.tscn" id="3_o6sha"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3mng3"]
 
@@ -21,7 +22,7 @@ forzaMin = -2.0
 forzaRotaz = 5
 
 [node name="Dado" parent="RigidBody3D" instance=ExtResource("1_k3v8i")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0755989, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0754251, 0.000513911)
@@ -32,4 +33,28 @@ one_shot = true
 
 [node name="Raycasts" type="Node3D" parent="RigidBody3D"]
 
+[node name="RaycastDadoScene" parent="RigidBody3D/Raycasts" instance=ExtResource("3_o6sha")]
+val_faccia = 1
+
+[node name="RaycastDadoScene2" parent="RigidBody3D/Raycasts" instance=ExtResource("3_o6sha")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.14964, 0)
+val_faccia = 6
+
+[node name="RaycastDadoScene3" parent="RigidBody3D/Raycasts" instance=ExtResource("3_o6sha")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.075, 0.075, 0)
+val_faccia = 2
+
+[node name="RaycastDadoScene4" parent="RigidBody3D/Raycasts" instance=ExtResource("3_o6sha")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.075, 0.075, 0)
+val_faccia = 5
+
+[node name="RaycastDadoScene5" parent="RigidBody3D/Raycasts" instance=ExtResource("3_o6sha")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.075, -0.075)
+val_faccia = 4
+
+[node name="RaycastDadoScene6" parent="RigidBody3D/Raycasts" instance=ExtResource("3_o6sha")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.075, 0.075)
+val_faccia = 3
+
+[connection signal="sleeping_state_changed" from="RigidBody3D" to="RigidBody3D" method="_on_sleeping_state_changed"]
 [connection signal="timeout" from="RigidBody3D/Timer" to="RigidBody3D" method="_on_timer_timeout"]

@@ -1,7 +1,8 @@
 extends RigidBody3D
 class_name Dado
 
-#forza max e min per x,y,z
+@onready var faccie = $Raycasts.get_children()
+
 @export var forzaMax = 10
 @export var forzaMin = 0.5
 @export var forzaRotaz = 30
@@ -34,3 +35,10 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
 	lancia = true
+
+
+func _on_sleeping_state_changed():
+	if sleeping:
+		for faccia in faccie:
+			if faccia.is_colliding():
+				print(faccia.val_faccia)
