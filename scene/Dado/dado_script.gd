@@ -2,11 +2,12 @@ extends RigidBody3D
 class_name Dado
 
 @onready var faccie = $Raycasts.get_children()
+signal valFaccia(value)
 
 @onready var start_pos = position
-@export var forzaMax = 10
-@export var forzaMin = 0.5
-@export var forzaRotaz = 30
+var forzaMax = -3
+var forzaMin = -2.0
+var forzaRotaz = 5
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"): 
@@ -30,4 +31,4 @@ func _on_sleeping_state_changed():
 	if sleeping:
 		for faccia in faccie:
 			if faccia.is_colliding():
-				print(faccia.val_faccia)
+				emit_signal("valFaccia", faccia.val_faccia)

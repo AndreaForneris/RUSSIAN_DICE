@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://csl5h1dupvm8k"]
+[gd_scene load_steps=8 format=3 uid="uid://csl5h1dupvm8k"]
 
+[ext_resource type="Script" path="res://scene/Main/game_script.gd" id="1_3w7wy"]
 [ext_resource type="PackedScene" uid="uid://bj2fe5h1a7if7" path="res://scene/Tavolo/tavolo_scene.tscn" id="1_5i55m"]
 [ext_resource type="PackedScene" uid="uid://dwkx6mrsdouw1" path="res://scene/Main/spowner_scene.tscn" id="3_1qhs3"]
 [ext_resource type="PackedScene" uid="uid://dyka6s1rmw6x" path="res://scene/Mr.Dice/mr.dice_scene.tscn" id="3_vyk52"]
@@ -19,6 +20,7 @@ ssao_enabled = true
 glow_enabled = true
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_3w7wy")
 
 [node name="Tavolo" parent="." instance=ExtResource("1_5i55m")]
 

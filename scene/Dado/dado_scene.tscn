@@ -18,9 +18,6 @@ physics_material_override = SubResource("PhysicsMaterial_3mng3")
 freeze = true
 freeze_mode = 1
 script = ExtResource("1_p8ojc")
-forzaMax = -3
-forzaMin = -2.0
-forzaRotaz = 5
 
 [node name="Dado" parent="RigidBody3D" instance=ExtResource("1_k3v8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0755989, 0)
