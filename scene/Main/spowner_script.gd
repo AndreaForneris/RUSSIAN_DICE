@@ -11,4 +11,4 @@ func _ready():
 
 func getFacce(value) -> void:
 	#for dado in get_children():
-	
+	print("getFacce"+str(value))

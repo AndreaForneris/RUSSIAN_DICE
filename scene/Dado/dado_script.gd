@@ -1,7 +1,6 @@
 extends RigidBody3D
 
 @onready var faccie = $Raycasts.get_children()
-signal valFaccia(value)
 
 @onready var start_pos = position
 var forzaMax = -3
@@ -27,8 +26,8 @@ func _physics_process(delta):
 
 
 func _on_sleeping_state_changed():
+	
 	if sleeping:
 		for faccia in faccie:
 			if faccia.is_colliding():
-				getFacce(faccia.val_faccia)
-				#emit_signal("valFaccia", faccia.val_faccia)
+				get_parent().get_parent().getFacce(faccia.val_faccia)
