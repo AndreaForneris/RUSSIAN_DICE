@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 @onready var faccie = $Raycasts.get_children()
+var lancio = false
 
 @onready var start_pos = position
 var forzaMax = -3
@@ -9,6 +10,7 @@ var forzaRotaz = 5
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"): 
+		lancio = true
 		freeze = false
 		visible = true
 		transform.origin = start_pos
@@ -26,8 +28,7 @@ func _physics_process(delta):
 
 
 func _on_sleeping_state_changed():
-	
 	if sleeping:
 		for faccia in faccie:
-			if faccia.is_colliding():
+			if faccia.is_colliding() and lancio:
 				get_parent().get_parent().getFacce(faccia.val_faccia)
