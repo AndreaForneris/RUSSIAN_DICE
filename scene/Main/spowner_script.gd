@@ -1,7 +1,10 @@
 extends Node3D
 
 @export var dice: PackedScene
-@export var nDadi = 5
+var nDadi = 5
+
+#vettore valore dadi
+#contatore aggiunte
 
 func _ready():
 	for i in nDadi:
@@ -10,5 +13,7 @@ func _ready():
 		add_child(dice)
 
 func getFacce(value) -> void:
-	#for dado in get_children():
 	print("getFacce"+str(value))
+	#add a vettore valore dadi
+	#se contatore = nDadi
+	#	get_parent().risultato(vettore)

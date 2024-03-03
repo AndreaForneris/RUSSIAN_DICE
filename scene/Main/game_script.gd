@@ -8,3 +8,6 @@ func _ready():
 	
 	#for dado in $PlayerSpowner.get_children():
 		#print(str(dado) +": "+ str(dado.valore))
+
+func risultato(value) -> void:
+	
