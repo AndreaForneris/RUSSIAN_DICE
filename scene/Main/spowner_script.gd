@@ -17,12 +17,17 @@ func loadDadi(value):
 		dice.name = 'dado' + str(i+1)
 		add_child(dice)
 
+func lanciaDadi():
+	vetIndex = 0
+	var child = $".".get_children()
+	for dado in child:
+		dado.get_node("RigidBody3D").lanciaDado()
+
 func getFacce(value) -> void:
 	#print("val Faccia: " + str(value))
 	vetFacce[vetIndex] = value
 	if vetIndex == nDadi:
-		for i in vetFacce:
-			print(str(i))
+		print(vetFacce)
 		get_parent().risultato(vetFacce)
 	else:
 		vetIndex += 1

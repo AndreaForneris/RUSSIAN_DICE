@@ -1,15 +1,14 @@
 extends RigidBody3D
 
 @onready var faccie = $Raycasts.get_children()
-var lancio = false
+@onready var lancio = false
 
 @onready var start_pos = position
 var forzaMax = -3
 var forzaMin = -2.0
 var forzaRotaz = 5
 
-func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_accept"): 
+func lanciaDado():
 		lancio = true
 		freeze = false
 		visible = true
