@@ -51,4 +51,8 @@ val_faccia = 4
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.075, 0.075)
 val_faccia = 3
 
+[node name="Timer" type="Timer" parent="RigidBody3D"]
+one_shot = true
+
 [connection signal="sleeping_state_changed" from="RigidBody3D" to="RigidBody3D" method="_on_sleeping_state_changed"]
+[connection signal="timeout" from="RigidBody3D/Timer" to="RigidBody3D" method="_on_timer_timeout"]
