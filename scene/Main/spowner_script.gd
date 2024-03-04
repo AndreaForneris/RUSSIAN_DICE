@@ -2,11 +2,11 @@ extends Node3D
 
 @export var dice: PackedScene
 
-var nDadi
+var nDadi:int
 #vettore valore dadi
 var vetFacce :Array
 #contatore aggiunte
-var vetIndex
+var vetIndex:int
 
 func loadDadi(value):
 	nDadi = value
@@ -26,8 +26,7 @@ func lanciaDadi():
 func getFacce(value) -> void:
 	#print("val Faccia: " + str(value))
 	vetFacce[vetIndex] = value
-	if vetIndex == nDadi:
-		print(vetFacce)
-		get_parent().risultato(vetFacce)
+	if vetIndex == nDadi-1:
+		get_parent().risultato(vetFacce, $".".name)
 	else:
 		vetIndex += 1

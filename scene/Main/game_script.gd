@@ -14,5 +14,5 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"): 
 		$PlayerSpowner.lanciaDadi()
 
-#func risultato(value) -> void:
-	
+func risultato(value, name) -> void:
+	print(str(value) + " " + str(name))
