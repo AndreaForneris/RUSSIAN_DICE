@@ -17,16 +17,20 @@ func loadDadi(value):
 		dice.name = 'dado' + str(i+1)
 		$DiceContainer.add_child(dice)
 
+func clearContainer():
+	var dadi = $DiceContainer.get_children()
+	for node in dadi:
+		node.queue_free()
+
 func lanciaDadi():
 	vetIndex = 0
 	var child = $DiceContainer.get_children()
 	for dado in child:
 		dado.get_node("RigidBody3D").lanciaDado()
-	#$Timer.start()
 
 func getFacce(value) -> void:
 	vetFacce[vetIndex] = value
-	if vetIndex == nDadi-1 :#and $Timer.is_stopped():
+	if vetIndex == nDadi-1 :
 		get_parent().risultato(vetFacce, $".".name)
 	else:
 		vetIndex += 1

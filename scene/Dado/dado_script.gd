@@ -32,9 +32,6 @@ func _on_sleeping_state_changed():
 				$Timer.start()
 				get_parent().get_parent().get_parent().getFacce(faccia.val_faccia)
 
-#func bug(): #cambiare axis_lock_angular_x
-	#if int(axis_lock_angular_x) < 0 and int(axis_lock_angular_x) > -0.1:
+#func bug(): #pezza per bug collisioni dado->tavolo
+	#if int(angular_velocity[0]) < 0 and int(angular_velocity[0]) > -0.1:
 		#return true
-#
-#func stato():
-	#print(axis_lock_angular_x)
