@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://csl5h1dupvm8k"]
+[gd_scene load_steps=9 format=3 uid="uid://csl5h1dupvm8k"]
 
 [ext_resource type="Script" path="res://scene/Main/game_script.gd" id="1_3w7wy"]
 [ext_resource type="PackedScene" uid="uid://bj2fe5h1a7if7" path="res://scene/Tavolo/tavolo_scene.tscn" id="1_5i55m"]
 [ext_resource type="PackedScene" uid="uid://dwkx6mrsdouw1" path="res://scene/Main/spowner_scene.tscn" id="3_1qhs3"]
 [ext_resource type="PackedScene" uid="uid://dyka6s1rmw6x" path="res://scene/Mr.Dice/mr.dice_scene.tscn" id="3_vyk52"]
+[ext_resource type="PackedScene" uid="uid://cr3ya5qye70es" path="res://scene/Main/hud_scene.tscn" id="5_wd0mg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y15px"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,5 +51,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 [node name="DiceContainer" parent="PlayerSpowner" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("5_wd0mg")]
+
+[node name="Label2" parent="CanvasLayer/HUD" index="1"]
+layout_mode = 0
+
 [editable path="AISpowner"]
 [editable path="PlayerSpowner"]
+[editable path="CanvasLayer/HUD"]

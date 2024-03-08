@@ -15,18 +15,10 @@ run/main_scene="res://scene/game.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Panku="*res://addons/panku_console/console.tscn"
-
 [display]
 
 window/size/viewport_width=800
 window/size/viewport_height=600
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/panku_console/plugin.cfg")
 
 [input]
 
