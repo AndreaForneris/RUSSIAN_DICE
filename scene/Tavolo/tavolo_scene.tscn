@@ -6,7 +6,7 @@
 size = Vector3(9.3, 1, 8.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_urg5u"]
-size = Vector3(10, 0.3, 0.35)
+size = Vector3(10, 3, 0.35)
 
 [node name="Node3D" type="Node3D"]
 
@@ -28,8 +28,8 @@ shape = SubResource("BoxShape3D_urg5u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006, 2.855, 4.34419)
 shape = SubResource("BoxShape3D_urg5u")
 
-[node name="tavolo" parent="StaticBody3D" instance=ExtResource("1_lv4f1")]
-
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.79601, 2.855, -0.0259996)
 shape = SubResource("BoxShape3D_urg5u")
+
+[node name="tavolo" parent="StaticBody3D" instance=ExtResource("1_lv4f1")]
