@@ -16,6 +16,7 @@ func _physics_process(delta):
 		$AISpowner.lanciaDadi()
 
 func risultato(vet, name) -> void:
+	#selezione label
 	if name == "AISpowner":
 		impostaLabel(1, true, name + " " + str(vet))
 	else: 
@@ -25,10 +26,10 @@ func risultato(vet, name) -> void:
 		if ris == rndNum:
 			if name == "AISpowner":
 				nDadiPlayer -= 1
-				impostaLabel(2, true, "Palyer -1")
+				#impostaLabel(2, true, "Palyer -1")
 			else:
 				nDadiAI -= 1
-				impostaLabel(2, true, "AI -1")
+				#impostaLabel(2, true, "AI -1")
 	
 	if nDadiAI == 0 and nDadiPlayer == 0:
 		print("pareggio")
