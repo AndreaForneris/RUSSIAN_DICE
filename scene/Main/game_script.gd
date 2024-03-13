@@ -6,11 +6,12 @@ var nDadiAI = 5
 
 func _ready():
 	rndNum = randi_range(1,6)
-	impostaLabel(1, true, "Il numero estratto è : " + str(rndNum))
+	#impostaLabel(1, true, "Il numero estratto è : " + str(rndNum))
+	print("Il numero estratto è : " + str(rndNum))
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("Lancia"): 
-		impostaLabel(1, false, "")
+		#impostaLabel(1, false, "")
 		loadSpawners()
 		$PlayerSpowner.lanciaDadi()
 		$AISpowner.lanciaDadi()
@@ -18,24 +19,28 @@ func _physics_process(delta):
 func risultato(vet, name) -> void:
 	#selezione label
 	if name == "AISpowner":
-		impostaLabel(1, true, name + " " + str(vet))
+		#impostaLabel(1, true, name + " " + str(vet))
+		print(name + " " + str(vet))
 	else: 
-		impostaLabel(2, true, name + " " + str(vet))
+		#impostaLabel(2, true, name + " " + str(vet))
+		print(name + " " + str(vet))
 	
 	for ris in vet:
 		if ris == rndNum:
 			if name == "AISpowner":
 				nDadiPlayer -= 1
+				print("Palyer -1")
 				#impostaLabel(2, true, "Palyer -1")
 			else:
 				nDadiAI -= 1
+				print("AI -1")
 				#impostaLabel(2, true, "AI -1")
 	
-	if nDadiAI == 0 and nDadiPlayer == 0:
+	if nDadiAI <= 0 and nDadiPlayer == nDadiAI:
 		print("pareggio")
-	if nDadiAI == 0:
+	if nDadiAI <= 0:
 		print("Palyer Vince")
-	if nDadiPlayer == 0:
+	if nDadiPlayer <= 0:
 		print("AI Vince")
 
 func loadSpawners():

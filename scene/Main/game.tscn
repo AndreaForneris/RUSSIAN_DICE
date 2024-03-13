@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://csl5h1dupvm8k"]
+[gd_scene load_steps=8 format=3 uid="uid://csl5h1dupvm8k"]
 
-[ext_resource type="Script" path="res://scene/Main/game_script.gd" id="1_3w7wy"]
-[ext_resource type="PackedScene" uid="uid://bj2fe5h1a7if7" path="res://scene/Tavolo/tavolo_scene.tscn" id="1_5i55m"]
-[ext_resource type="PackedScene" uid="uid://dwkx6mrsdouw1" path="res://scene/Main/spowner_scene.tscn" id="3_1qhs3"]
-[ext_resource type="PackedScene" uid="uid://dyka6s1rmw6x" path="res://scene/Mr.Dice/mr.dice_scene.tscn" id="3_vyk52"]
-[ext_resource type="PackedScene" uid="uid://cr3ya5qye70es" path="res://scene/Main/hud_scene.tscn" id="5_wd0mg"]
+[ext_resource type="Script" path="res://scene/Main/game_script.gd" id="1_ohpua"]
+[ext_resource type="PackedScene" uid="uid://bj2fe5h1a7if7" path="res://scene/Tavolo/tavolo_scene.tscn" id="2_y2nr7"]
+[ext_resource type="PackedScene" uid="uid://dyka6s1rmw6x" path="res://scene/Mr.Dice/mr.dice_scene.tscn" id="3_ynx51"]
+[ext_resource type="PackedScene" uid="uid://dwkx6mrsdouw1" path="res://scene/Main/spowner_scene.tscn" id="4_xrt8v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y15px"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,11 +20,11 @@ ssao_enabled = true
 glow_enabled = true
 
 [node name="Game" type="Node3D"]
-script = ExtResource("1_3w7wy")
+script = ExtResource("1_ohpua")
 
-[node name="Tavolo" parent="." instance=ExtResource("1_5i55m")]
+[node name="Tavolo" parent="." instance=ExtResource("2_y2nr7")]
 
-[node name="Mr_Dice" parent="." instance=ExtResource("3_vyk52")]
+[node name="Mr_Dice" parent="." instance=ExtResource("3_ynx51")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7.91033)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -43,28 +42,16 @@ spot_angle_attenuation = 0.133973
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gh40w")
 
-[node name="AISpowner" parent="." instance=ExtResource("3_1qhs3")]
+[node name="AISpowner" parent="." instance=ExtResource("4_xrt8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.64, 3.685, -2.8919)
 
 [node name="DiceContainer" parent="AISpowner" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="PlayerSpowner" parent="." instance=ExtResource("3_1qhs3")]
+[node name="PlayerSpowner" parent="." instance=ExtResource("4_xrt8v")]
 
 [node name="DiceContainer" parent="PlayerSpowner" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="CanvasLayer" instance=ExtResource("5_wd0mg")]
-
-[node name="Label2" parent="CanvasLayer/HUD" index="1"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 780.0
-offset_bottom = 95.0
-
 [editable path="AISpowner"]
 [editable path="PlayerSpowner"]
-[editable path="CanvasLayer/HUD"]
