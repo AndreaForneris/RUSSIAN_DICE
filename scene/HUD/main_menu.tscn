@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c428ijsmeprhw"]
+[gd_scene load_steps=3 format=3 uid="uid://c428ijsmeprhw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hpp0y"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxywh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pamfh"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,32 +12,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.49
-offset_top = -25.575
-offset_right = 32.51
-offset_bottom = 75.425
+offset_left = -51.0
+offset_top = 107.0
+offset_right = 50.0
+offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(50.05, 50.05)
+alignment = 1
 
-[node name="btnStart" type="Button" parent="VBoxContainer"]
+[node name="btnStart" type="Button" parent="Menu"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxEmpty_hpp0y")
-text = "Start"
+theme_override_colors/font_hover_color = Color(0.54099, 0.540991, 0.54099, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vxywh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pamfh")
+text = "START
+"
 
-[node name="btnInstructions" type="Button" parent="VBoxContainer"]
+[node name="btnInstructions" type="Button" parent="Menu"]
 layout_mode = 2
-text = "Instructions"
+theme_override_colors/font_hover_color = Color(0.54099, 0.540991, 0.54099, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vxywh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pamfh")
+text = "INSTRUCTIONS"
 
-[node name="btnQuit" type="Button" parent="VBoxContainer"]
+[node name="btnQuit" type="Button" parent="Menu"]
 layout_mode = 2
-text = "Quit"
+theme_override_colors/font_hover_color = Color(0.54099, 0.540991, 0.54099, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vxywh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pamfh")
+text = "QUIT"
+
+[node name="Backgroud" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autoplay = true
+loop = true
