@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c428ijsmeprhw"]
+[gd_scene load_steps=6 format=3 uid="uid://c428ijsmeprhw"]
 
 [ext_resource type="FontFile" uid="uid://d2rlynrelddl4" path="res://data/font/Kremlin Kourier II.ttf" id="1_yi6jp"]
+[ext_resource type="Script" path="res://scene/HUD/menu_script.gd" id="2_cmdhh"]
 
 [sub_resource type="Theme" id="Theme_yo610"]
 default_font = ExtResource("1_yi6jp")
@@ -12,6 +13,14 @@ default_font_size = 30
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackGroud" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,6 +44,7 @@ scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(108, 56.5)
 theme = SubResource("Theme_yo610")
 alignment = 1
+script = ExtResource("2_cmdhh")
 
 [node name="btnStart" type="Button" parent="Menu"]
 layout_mode = 2
@@ -57,3 +67,6 @@ theme_override_colors/font_hover_color = Color(0.54099, 0.540991, 0.54099, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vxywh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_pamfh")
 text = "QUIT"
+
+[connection signal="pressed" from="Menu/btnStart" to="Menu" method="_on_btn_start_pressed"]
+[connection signal="pressed" from="Menu/btnInstructions" to="Menu" method="_on_btn_instructions_pressed"]
