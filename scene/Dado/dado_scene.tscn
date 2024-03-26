@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4ixih5g7jcd0"]
 
-[ext_resource type="PackedScene" uid="uid://sc7syb6j5jst" path="res://scene/Dado/Dado.blend" id="1_k3v8i"]
 [ext_resource type="Script" path="res://scene/Dado/dado_script.gd" id="1_p8ojc"]
+[ext_resource type="PackedScene" uid="uid://sc7syb6j5jst" path="res://scene/Dado/Dado.blend" id="2_pxt5g"]
 [ext_resource type="PackedScene" uid="uid://cctga84jakikb" path="res://scene/Dado/raycastDado_scene.tscn" id="3_o6sha"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3mng3"]
@@ -19,8 +19,8 @@ freeze = true
 freeze_mode = 1
 script = ExtResource("1_p8ojc")
 
-[node name="Dado" parent="RigidBody3D" instance=ExtResource("1_k3v8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0755989, 0)
+[node name="Dado" parent="RigidBody3D" instance=ExtResource("2_pxt5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.076, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0754251, 0.000513911)

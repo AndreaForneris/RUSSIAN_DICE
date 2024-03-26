@@ -20,7 +20,7 @@ func risultato(vet, name) -> void:
 	#selezione label
 	if name == "AISpowner":
 		#impostaLabel(1, true, name + " " + str(vet))
-		print(name + " " + str(vet))
+		print(name + " " + str(vet)) 
 	else: 
 		#impostaLabel(2, true, name + " " + str(vet))
 		print(name + " " + str(vet))
