@@ -15,6 +15,9 @@ func _physics_process(delta):
 		loadSpawners()
 		$PlayerSpowner.lanciaDadi()
 		$AISpowner.lanciaDadi()
+	
+	if Input.is_action_just_pressed("Esci"):
+		get_tree().change_scene_to_file("res://scene/HUD/main_menu.tscn")
 
 func risultato(vet, name) -> void:
 	#selezione label
