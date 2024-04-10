@@ -4,8 +4,8 @@ extends RigidBody3D
 @onready var lancio = false
 
 @onready var start_pos = position
-@export var forzaMax = -3
-@export var forzaMin = -2
+@export var forzaMax = -4
+@export var forzaMin = -3
 @export var forzaRotaz = 5
 
 func lanciaDado():
