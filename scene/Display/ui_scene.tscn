@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr3ya5qye70es"]
+[gd_scene load_steps=8 format=3 uid="uid://b21jxkgedg6ht"]
 
 [ext_resource type="Texture2D" uid="uid://c3au673kknh4a" path="res://data/img/DICE/1.png" id="1_8lyal"]
 [ext_resource type="Texture2D" uid="uid://cdlbxkstwm68d" path="res://data/img/DICE/2.png" id="2_rkjag"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://corh2jiv2qtsv" path="res://data/img/DICE/5.png" id="5_n7try"]
 [ext_resource type="Texture2D" uid="uid://b76uo3vmmwij7" path="res://data/img/DICE/6.png" id="6_kk5ko"]
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_abi5e"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_a1k7s"]
 frames = 6
 frame_0/texture = ExtResource("1_8lyal")
 frame_0/duration = 0.1
@@ -22,27 +22,45 @@ frame_4/duration = 0.1
 frame_5/texture = ExtResource("6_kk5ko")
 frame_5/duration = 0.1
 
-[node name="HUD" type="Control"]
-layout_mode = 3
+[node name="Control" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -492.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -496.0
-offset_top = 52.0
-offset_right = -316.0
-offset_bottom = 227.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AnimatedTexture_abi5e")
-expand_mode = 1
-stretch_mode = 4
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_a1k7s")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_a1k7s")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_a1k7s")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_a1k7s")
+expand_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_a1k7s")
+expand_mode = 3
