@@ -28,7 +28,8 @@ script = ExtResource("1_ohpua")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7.91033)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.959584, 0.281421, 0, -0.281421, 0.959584, 0, 5.35706, 5.60677)
+transform = Transform3D(1, 0, 0, 0, 0.949425, 0.313992, 0, -0.313992, 0.949425, 0, 5.687, 7.322)
+fov = 55.0
 
 [node name="Light" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.8341, -2.98727e-07)
