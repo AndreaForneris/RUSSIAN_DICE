@@ -6,23 +6,32 @@ var rndNum: int
 @onready var stato = "TrndAI"
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("Lancia"): 
+	var end:bool = false
+	if nDadiAI == 0:
+		print("Palyer Vince")
+		end = true
+	if nDadiPlayer == 0:
+		print("AI Vince")
+		end = true
+	
+	if Input.is_action_just_pressed("Lancia") and !end: 
 		risultato([0], "")
 	
 	if Input.is_action_just_pressed("Esci"):
 		get_tree().change_scene_to_file("res://scene/HUD/main_menu.tscn")
 
 func risultato(vet, name) -> void:
+	print(vet, " ", name)
+	
 	match stato:
 		"TrndAI":#lancio dado 
-			#nDadiAI = 1 da passare come parametro a lancia dadi
-			loadSpawners()
+			loadSpawners(1, nDadiPlayer)
 			$AISpowner.lanciaDadi()
 			stato = "RrndAI"
 		
 		"RrndAI":#lettura dado
 			rndNum = vet[0]
-			print("rnd: " + str(rndNum))
+			#print("rnd: " + str(rndNum))
 			$Timer.start
 			if $Timer.is_stopped():
 				$PlayerSpowner.lanciaDadi()
@@ -36,14 +45,13 @@ func risultato(vet, name) -> void:
 			stato = "TrndPlayer"
 		
 		"TrndPlayer":#lancio dado 
-			nDadiPlayer = 1
-			loadSpawners()
+			loadSpawners(nDadiAI,1)
 			$PlayerSpowner.lanciaDadi()
 			stato = "RrndPlayer"
 		
 		"RrndPlayer":#lettura dado
 			rndNum = vet[0]
-			print("rnd: " + str(rndNum))
+			#print("rnd: " + str(rndNum))
 			stato = "AIGame"
 			$Timer.start
 			if $Timer.is_stopped():
@@ -77,17 +85,9 @@ func risultato(vet, name) -> void:
 	#if nDadiPlayer <= 0:
 		#print("AI Vince")
 
-func loadSpawners():
+func loadSpawners(lnAI, lnPlayer):
 	$AISpowner.clearContainer()
 	$PlayerSpowner.clearContainer()
 	
-	$AISpowner.loadDadi(nDadiAI)
-	$PlayerSpowner.loadDadi(nDadiPlayer)
-
-func impostaLabel(lbl, value, txt):
-	if lbl == 1:
-		$CanvasLayer/HUD/Label1.visible = value
-		$CanvasLayer/HUD/Label1.set_text(txt)
-	if lbl == 2:
-		$CanvasLayer/HUD/Label2.visible = value
-		$CanvasLayer/HUD/Label2.set_text(txt)
+	$AISpowner.loadDadi(lnAI)
+	$PlayerSpowner.loadDadi(lnPlayer)
