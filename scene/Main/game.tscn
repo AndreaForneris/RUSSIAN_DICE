@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://csl5h1dupvm8k"]
+[gd_scene load_steps=9 format=3 uid="uid://csl5h1dupvm8k"]
 
 [ext_resource type="Script" path="res://scene/Main/game_script.gd" id="1_ohpua"]
 [ext_resource type="PackedScene" uid="uid://bj2fe5h1a7if7" path="res://scene/Tavolo/tavolo_scene.tscn" id="2_y2nr7"]
+[ext_resource type="PackedScene" uid="uid://csoltgp63uebb" path="res://scene/Display/display_scene.tscn" id="3_ru6wa"]
 [ext_resource type="PackedScene" uid="uid://dyka6s1rmw6x" path="res://scene/Mr.Dice/mr.dice_scene.tscn" id="3_ynx51"]
 [ext_resource type="PackedScene" uid="uid://dwkx6mrsdouw1" path="res://scene/Main/spowner_scene.tscn" id="4_xrt8v"]
 
@@ -23,6 +24,9 @@ glow_enabled = true
 script = ExtResource("1_ohpua")
 
 [node name="Tavolo" parent="." instance=ExtResource("2_y2nr7")]
+
+[node name="Display" parent="." instance=ExtResource("3_ru6wa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.15, 3.855)
 
 [node name="Mr_Dice" parent="." instance=ExtResource("3_ynx51")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.24125e-08, 0, -7.16882)

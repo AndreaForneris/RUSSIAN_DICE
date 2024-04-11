@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://csoltgp63uebb"]
+[gd_scene load_steps=6 format=3 uid="uid://csoltgp63uebb"]
 
 [ext_resource type="PackedScene" uid="uid://b21jxkgedg6ht" path="res://scene/Display/ui_scene.tscn" id="1_sn6kr"]
+[ext_resource type="PackedScene" uid="uid://c80bpvaumpq75" path="res://scene/Display/display.blend" id="2_hldkw"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_c2lni"]
 viewport_path = NodePath("SubViewport")
@@ -8,20 +9,27 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p72rw"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_c2lni")
+rim_tint = 1.0
+backlight = Color(1, 1, 1, 1)
+refraction_scale = -1.0
+grow_amount = 0.598
 
 [sub_resource type="QuadMesh" id="QuadMesh_um410"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_p72rw")
-size = Vector2(0.9, 0.16)
+size = Vector2(1.33, 0.3)
 
 [node name="DisplayScene" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.469472, 0.882948, 0, -0.882948, 0.469472, 0, 0.065, 0)
 mesh = SubResource("QuadMesh_um410")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(660, 128)
 
 [node name="Control" parent="SubViewport" instance=ExtResource("1_sn6kr")]
+
+[node name="Display" parent="." instance=ExtResource("2_hldkw")]
 
 [editable path="SubViewport/Control"]
