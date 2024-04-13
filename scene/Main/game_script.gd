@@ -38,7 +38,7 @@ func risultato(vet, name) -> void:
 			stato = "playerGame"
 		
 		"playerGame":
-			$Display.setDisplay(vet, name)
+			#$Display.setDisplay(vet, name)
 			for ris in vet:
 				if ris == rndNum:
 						nDadiPlayer -= 1

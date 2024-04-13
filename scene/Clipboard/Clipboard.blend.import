@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c80bpvaumpq75"
-path="res://.godot/imported/display.blend-3d2dc80485cbb70fc7cbcd6c53f41727.scn"
+uid="uid://27umrrlys6sn"
+path="res://.godot/imported/Clipboard.blend-63c7c8cee5889dd8996e75fc385e0a8a.scn"
 
 [deps]
 
-source_file="res://scene/Display/display.blend"
-dest_files=["res://.godot/imported/display.blend-3d2dc80485cbb70fc7cbcd6c53f41727.scn"]
+source_file="res://scene/Clipboard/Clipboard.blend"
+dest_files=["res://.godot/imported/Clipboard.blend-63c7c8cee5889dd8996e75fc385e0a8a.scn"]
 
 [params]
 
