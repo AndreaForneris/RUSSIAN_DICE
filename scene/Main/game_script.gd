@@ -33,16 +33,14 @@ func risultato(vet, name) -> void:
 			stato = "RrndAI"
 		
 		"RrndAI":#lettura dado
+			await CameraTransition.animation($PlayerCamera,$TableCamera2)
 			rndNum = vet[0]
-			#print("rnd: " + str(rndNum))
-			$Timer.start
-			if $Timer.is_stopped():
-				$PlayerSpowner.lanciaDadi()
+			$PlayerSpowner.lanciaDadi()
 			stato = "playerGame"
 		
 		"playerGame":
 			#$Display.setDisplay(vet, name)
-			CameraTransition.animation($PlayerCamera, $TableCamera1)
+			await CameraTransition.animation($PlayerCamera, $TableCamera1, 1, 1)
 			for ris in vet:
 				if ris == rndNum:
 						nDadiPlayer -= 1
@@ -55,14 +53,15 @@ func risultato(vet, name) -> void:
 			stato = "RrndPlayer"
 		
 		"RrndPlayer":#lettura dado
+			await CameraTransition.animation($PlayerCamera, $TableCamera1)
 			rndNum = vet[0]
-			#print("rnd: " + str(rndNum))
 			stato = "AIGame"
 			$Timer.start
 			if $Timer.is_stopped():
 				$AISpowner.lanciaDadi()
 		
 		"AIGame":
+			await CameraTransition.animation($PlayerCamera, $TableCamera2, 1,1)
 			for ris in vet:
 				if ris == rndNum:
 						nDadiAI -= 1
