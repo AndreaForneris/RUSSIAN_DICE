@@ -1,31 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://b21jxkgedg6ht"]
+[gd_scene load_steps=4 format=3 uid="uid://b21jxkgedg6ht"]
 
-[ext_resource type="Texture2D" uid="uid://dv7q6bwnfr2o6" path="res://data/img/dice_white/1.png" id="1_6knoy"]
-[ext_resource type="Texture2D" uid="uid://bac1744kvp7db" path="res://data/img/dice_white/2.png" id="2_j7ebn"]
-[ext_resource type="Texture2D" uid="uid://dsjs87j1i24mw" path="res://data/img/dice_white/3.png" id="3_1vugp"]
-[ext_resource type="Texture2D" uid="uid://de81lxyqlbuhe" path="res://data/img/dice_white/4.png" id="4_b87pp"]
-[ext_resource type="Texture2D" uid="uid://dmyqqkobvxbfk" path="res://data/img/dice_white/5.png" id="5_yeovx"]
-[ext_resource type="Texture2D" uid="uid://ybyf8ovb2u4i" path="res://data/img/dice_white/6.png" id="6_sdxrl"]
+[ext_resource type="Texture2D" uid="uid://carno8wohfoqq" path="res://scene/Display/rnd_anim.tres" id="1_e5wrh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2djw"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_a1k7s"]
-frames = 6
-frame_0/texture = ExtResource("1_6knoy")
-frame_0/duration = 0.1
-frame_1/texture = ExtResource("2_j7ebn")
-frame_1/duration = 0.1
-frame_2/texture = ExtResource("3_1vugp")
-frame_2/duration = 0.1
-frame_3/texture = ExtResource("4_b87pp")
-frame_3/duration = 0.1
-frame_4/texture = ExtResource("5_yeovx")
-frame_4/duration = 0.1
-frame_5/texture = ExtResource("6_sdxrl")
-frame_5/duration = 0.1
+[sub_resource type="GDScript" id="GDScript_datye"]
+script/source = "extends Panel
 
-[node name="Control" type="Panel"]
+func _process(delta):
+	pass
+"
+
+[node name="Panel" type="Panel"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,42 +26,43 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(330, 64)
 theme_override_styles/panel = SubResource("StyleBoxFlat_a2djw")
+script = SubResource("GDScript_datye")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="slot1" type="TextureRect" parent="."]
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
-texture = SubResource("AnimatedTexture_a1k7s")
+texture = ExtResource("1_e5wrh")
 expand_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="slot2" type="TextureRect" parent="."]
 layout_mode = 2
 offset_left = 132.0
 offset_right = 260.0
 offset_bottom = 128.0
-texture = SubResource("AnimatedTexture_a1k7s")
+texture = ExtResource("1_e5wrh")
 expand_mode = 3
 
-[node name="TextureRect3" type="TextureRect" parent="."]
+[node name="slot3" type="TextureRect" parent="."]
 layout_mode = 2
 offset_left = 264.0
 offset_right = 392.0
 offset_bottom = 128.0
-texture = SubResource("AnimatedTexture_a1k7s")
+texture = ExtResource("1_e5wrh")
 expand_mode = 3
 
-[node name="TextureRect4" type="TextureRect" parent="."]
+[node name="slot4" type="TextureRect" parent="."]
 layout_mode = 2
 offset_left = 396.0
 offset_right = 524.0
 offset_bottom = 128.0
-texture = SubResource("AnimatedTexture_a1k7s")
+texture = ExtResource("1_e5wrh")
 expand_mode = 3
 
-[node name="TextureRect5" type="TextureRect" parent="."]
+[node name="slot5" type="TextureRect" parent="."]
 layout_mode = 2
 offset_left = 528.0
 offset_right = 656.0
 offset_bottom = 128.0
-texture = SubResource("AnimatedTexture_a1k7s")
+texture = ExtResource("1_e5wrh")
 expand_mode = 3

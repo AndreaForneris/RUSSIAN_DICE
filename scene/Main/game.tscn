@@ -1,10 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://csl5h1dupvm8k"]
+[gd_scene load_steps=13 format=3 uid="uid://csl5h1dupvm8k"]
 
 [ext_resource type="Script" path="res://scene/Main/game_script.gd" id="1_ohpua"]
 [ext_resource type="PackedScene" uid="uid://bj2fe5h1a7if7" path="res://scene/Tavolo/tavolo_scene.tscn" id="2_y2nr7"]
 [ext_resource type="PackedScene" uid="uid://csoltgp63uebb" path="res://scene/Display/display_scene.tscn" id="3_ru6wa"]
 [ext_resource type="PackedScene" uid="uid://dyka6s1rmw6x" path="res://scene/Mr.Dice/mr.dice_scene.tscn" id="3_ynx51"]
+[ext_resource type="Script" path="res://scene/Display/display_script.gd" id="4_wwvt6"]
 [ext_resource type="PackedScene" uid="uid://dwkx6mrsdouw1" path="res://scene/Main/spowner_scene.tscn" id="4_xrt8v"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nwd1j"]
+viewport_path = NodePath("Display/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_857vv"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_nwd1j")
+rim_tint = 1.0
+backlight = Color(1, 1, 1, 1)
+refraction_scale = -1.0
+grow_amount = 0.598
+
+[sub_resource type="QuadMesh" id="QuadMesh_jrjq4"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_857vv")
+size = Vector2(1.33, 0.3)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y15px"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,6 +44,10 @@ script = ExtResource("1_ohpua")
 
 [node name="Display" parent="." instance=ExtResource("3_ru6wa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.15, 3.855)
+script = ExtResource("4_wwvt6")
+
+[node name="MeshInstance3D" parent="Display" index="0"]
+mesh = SubResource("QuadMesh_jrjq4")
 
 [node name="Mr_Dice" parent="." instance=ExtResource("3_ynx51")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.24125e-08, 0, -7.16882)
@@ -63,5 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 wait_time = 5.0
 one_shot = true
 
+[editable path="Display"]
+[editable path="Display/SubViewport/Control"]
 [editable path="AISpowner"]
 [editable path="PlayerSpowner"]
