@@ -5,6 +5,9 @@ var rndNum: int
 @onready var nDadiAI = 5
 @onready var stato = "TrndAI"
 
+func _ready():
+	$PlayerCamera.current = true
+
 func _physics_process(delta):
 	var end:bool = false
 	if nDadiAI == 0:
@@ -39,6 +42,7 @@ func risultato(vet, name) -> void:
 		
 		"playerGame":
 			#$Display.setDisplay(vet, name)
+			CameraTransition.animation($PlayerCamera, $TableCamera1)
 			for ris in vet:
 				if ris == rndNum:
 						nDadiPlayer -= 1
@@ -65,26 +69,10 @@ func risultato(vet, name) -> void:
 						print("AI -1")
 			stato = "TrndAI"
 	
-	#if name == "AISpowner":
-		#print(name + " " + str(vet)) 
-	#else: 
-		#print(name + " " + str(vet))
-	#
-	#for ris in vet:
-		#if ris == rndNum:
-			#if name == "AISpowner":
-				#nDadiPlayer -= 1
-				#print("Palyer -1")
-			#else:
-				#nDadiAI -= 1
-				#print("AI -1")
-	#
-	#if nDadiAI <= 0 and nDadiPlayer == nDadiAI:
-		#print("pareggio")
-	#if nDadiAI <= 0:
-		#print("Palyer Vince")
-	#if nDadiPlayer <= 0:
-		#print("AI Vince")
+#func setDisplay(vet, name)-> void:
+	#var slots = $SubViewport/Control.get_children()
+	#for i in range(vet.size()):
+		#slots[i].texture = ResourceLoader.load("res://data/img/dice_white/"+ str(vet[i]) +".png")
 
 func loadSpawners(lnAI, lnPlayer):
 	$AISpowner.clearContainer()
