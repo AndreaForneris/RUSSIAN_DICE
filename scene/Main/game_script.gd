@@ -40,11 +40,14 @@ func risultato(vet, name) -> void:
 		
 		"playerGame":
 			#$Display.setDisplay(vet, name)
-			await CameraTransition.animation($PlayerCamera, $TableCamera1, 1, 1)
+			CameraTransition.animation($PlayerCamera, $TableCamera1, 1, 1)
+			var i = 0
 			for ris in vet:
+				i += 1
 				if ris == rndNum:
 						nDadiPlayer -= 1
 						print("Palyer -1")
+						objectTransition($PlayerSpowner/DiceContainer.get_child(i), $PlayerSpowner/DiceBin)
 			stato = "TrndPlayer"
 		
 		"TrndPlayer":#lancio dado 
@@ -55,23 +58,31 @@ func risultato(vet, name) -> void:
 		"RrndPlayer":#lettura dado
 			await CameraTransition.animation($PlayerCamera, $TableCamera1)
 			rndNum = vet[0]
+			$AISpowner.lanciaDadi()
 			stato = "AIGame"
-			$Timer.start
-			if $Timer.is_stopped():
-				$AISpowner.lanciaDadi()
 		
 		"AIGame":
-			await CameraTransition.animation($PlayerCamera, $TableCamera2, 1,1)
+			CameraTransition.animation($PlayerCamera, $TableCamera2, 1,1)
+			var i = 0
 			for ris in vet:
+				i += 1
 				if ris == rndNum:
 						nDadiAI -= 1
 						print("AI -1")
+						objectTransition($AISpowner/DiceContainer.get_child(i), $AISpowner/DiceBin)
 			stato = "TrndAI"
-	
+
 #func setDisplay(vet, name)-> void:
 	#var slots = $SubViewport/Control.get_children()
 	#for i in range(vet.size()):
 		#slots[i].texture = ResourceLoader.load("res://data/img/dice_white/"+ str(vet[i]) +".png")
+
+func objectTransition(from: Node3D, to: Node3D, AnimDuration: float = 2):
+	var tween = create_tween()
+	tween.tween_property(from, "global_transform", to.global_transform , AnimDuration).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.play()
+	await tween.finished
+	tween.stop()
 
 func loadSpawners(lnAI, lnPlayer):
 	$AISpowner.clearContainer()
