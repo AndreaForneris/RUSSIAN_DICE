@@ -30,7 +30,7 @@ func _on_sleeping_state_changed():
 		for faccia in facce:
 			if faccia.is_colliding() and lancio and $Timer.is_stopped():
 				$Timer.start()
-				get_parent().get_parent().get_parent().getFacce(faccia.val_faccia)
+				get_parent().get_parent().get_parent().getFacce(faccia.val_faccia, $"..".name)
 
 #func bug(): #pezza per bug collisioni dado->tavolo
 	#if int(angular_velocity[0]) < 0 and int(angular_velocity[0]) > -0.1:

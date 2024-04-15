@@ -18,13 +18,13 @@ func _physics_process(delta):
 		end = true
 	
 	if Input.is_action_just_pressed("Lancia") and !end: 
-		risultato([0], "")
+		risultato([0], "", "")
 	
 	if Input.is_action_just_pressed("Esci"):
 		get_tree().change_scene_to_file("res://scene/HUD/main_menu.tscn")
 
-func risultato(vet, name) -> void:
-	print(vet, " ", name)
+func risultato(vet, name, Dname) -> void:
+	print(vet," ", Dname , " ", name)
 	
 	match stato:
 		"TrndAI":#lancio dado 
@@ -41,14 +41,13 @@ func risultato(vet, name) -> void:
 		"playerGame":
 			#$Display.setDisplay(vet, name)
 			CameraTransition.animation($PlayerCamera, $TableCamera1, 1, 1)
-			print(str($PlayerSpowner/DiceContainer.get_child_count()))
 			var i = 0
 			for ris in vet:
 				i += 1
 				if ris == rndNum:
 						nDadiPlayer -= 1
 						print("Palyer -1")
-						await objectTransition($PlayerSpowner/DiceContainer.get_child(i-1), $PlayerSpowner/DiceBin)
+						await objectTransition(get_node("PlayerSpowner/DiceContainer/"+Dname[i-1]), $PlayerSpowner/DiceBin)
 			stato = "TrndPlayer"
 		
 		"TrndPlayer":#lancio dado
@@ -70,7 +69,7 @@ func risultato(vet, name) -> void:
 				if ris == rndNum:
 						nDadiAI -= 1
 						print("AI -1")
-						await objectTransition($AISpowner/DiceContainer.get_child(i-1), $AISpowner/DiceBin)
+						await objectTransition(get_node("AISpowner/DiceContainer/"+Dname[i-1]), $AISpowner/DiceBin)
 			stato = "TrndAI"
 
 #func setDisplay(vet, name)-> void:

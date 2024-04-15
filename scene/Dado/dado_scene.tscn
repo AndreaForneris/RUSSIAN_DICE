@@ -8,7 +8,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_auvsw"]
 margin = 0.0
-size = Vector3(0.16, 0.16, 0.16)
+size = Vector3(0.21, 0.21, 0.21)
 
 [node name="Node3D" type="Node3D"]
 
@@ -20,13 +20,14 @@ freeze_mode = 1
 script = ExtResource("1_p8ojc")
 
 [node name="Dado" parent="RigidBody3D" instance=ExtResource("2_pxt5g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.076, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0754251, 0.000513911)
+transform = Transform3D(1.00029, 0, 0, 0, 1.00029, 0, 0, 0, 1.00029, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_auvsw")
 
 [node name="Raycasts" type="Node3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
 
 [node name="RaycastDadoScene" parent="RigidBody3D/Raycasts" instance=ExtResource("3_o6sha")]
 val_faccia = 1

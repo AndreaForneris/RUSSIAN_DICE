@@ -7,10 +7,12 @@ var nDadi:int
 var vetFacce :Array
 #contatore aggiunte
 var vetIndex:int
+var vetNomi :Array
 
 func loadDadi(value):
 	nDadi = value
 	vetFacce.resize(nDadi)
+	vetNomi.resize(nDadi)
 	vetIndex = 0
 	for i in nDadi:
 		var dice = dice.instantiate()
@@ -28,9 +30,10 @@ func lanciaDadi():
 	for dado in child:
 		dado.get_node("RigidBody3D").lanciaDado()
 
-func getFacce(value) -> void:
+func getFacce(value, name) -> void:
 	vetFacce[vetIndex] = value
+	vetNomi[vetIndex] = name
 	if vetIndex == nDadi-1 :
-		get_parent().risultato(vetFacce, $".".name)
+		get_parent().risultato(vetFacce, $".".name, vetNomi)
 	else:
 		vetIndex += 1
