@@ -41,16 +41,17 @@ func risultato(vet, name) -> void:
 		"playerGame":
 			#$Display.setDisplay(vet, name)
 			CameraTransition.animation($PlayerCamera, $TableCamera1, 1, 1)
+			print(str($PlayerSpowner/DiceContainer.get_child_count()))
 			var i = 0
 			for ris in vet:
 				i += 1
 				if ris == rndNum:
 						nDadiPlayer -= 1
 						print("Palyer -1")
-						objectTransition($PlayerSpowner/DiceContainer.get_child(i), $PlayerSpowner/DiceBin)
+						await objectTransition($PlayerSpowner/DiceContainer.get_child(i-1), $PlayerSpowner/DiceBin)
 			stato = "TrndPlayer"
 		
-		"TrndPlayer":#lancio dado 
+		"TrndPlayer":#lancio dado
 			loadSpawners(nDadiAI,1)
 			$PlayerSpowner.lanciaDadi()
 			stato = "RrndPlayer"
@@ -69,7 +70,7 @@ func risultato(vet, name) -> void:
 				if ris == rndNum:
 						nDadiAI -= 1
 						print("AI -1")
-						objectTransition($AISpowner/DiceContainer.get_child(i), $AISpowner/DiceBin)
+						await objectTransition($AISpowner/DiceContainer.get_child(i-1), $AISpowner/DiceBin)
 			stato = "TrndAI"
 
 #func setDisplay(vet, name)-> void:
