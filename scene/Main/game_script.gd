@@ -47,7 +47,7 @@ func risultato(vet, name, Dname) -> void:
 				if ris == rndNum:
 						nDadiPlayer -= 1
 						print("Palyer -1")
-						await objectTransition(get_node("PlayerSpowner/DiceContainer/"+Dname[i-1]), $PlayerSpowner/DiceBin)
+						objectTransition(get_node("PlayerSpowner/DiceContainer/"+Dname[i-1]), $PlayerSpowner/DiceBin, "playerGame")
 			stato = "TrndPlayer"
 		
 		"TrndPlayer":#lancio dado
@@ -69,7 +69,7 @@ func risultato(vet, name, Dname) -> void:
 				if ris == rndNum:
 						nDadiAI -= 1
 						print("AI -1")
-						await objectTransition(get_node("AISpowner/DiceContainer/"+Dname[i-1]), $AISpowner/DiceBin)
+						objectTransition(get_node("AISpowner/DiceContainer/"+Dname[i-1]), $AISpowner/DiceBin, "AIGame")
 			stato = "TrndAI"
 
 #func setDisplay(vet, name)-> void:
@@ -77,11 +77,12 @@ func risultato(vet, name, Dname) -> void:
 	#for i in range(vet.size()):
 		#slots[i].texture = ResourceLoader.load("res://data/img/dice_white/"+ str(vet[i]) +".png")
 
-func objectTransition(from: Node3D, to: Node3D, AnimDuration: float = 2):
+func objectTransition(from: Node3D, to: Node3D, nextStato):
 	var tween = create_tween()
-	tween.tween_property(from, "global_transform", to.global_transform , AnimDuration).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(from, "global_transform", to.global_transform , 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.play()
 	await tween.finished
+	stato = nextStato
 	tween.stop()
 
 func loadSpawners(lnAI, lnPlayer):
