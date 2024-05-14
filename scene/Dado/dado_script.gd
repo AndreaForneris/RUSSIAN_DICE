@@ -26,7 +26,7 @@ func lanciaDado():
 		apply_central_impulse(vettore_lancio * forzaRotaz)
 
 func _on_sleeping_state_changed():
-	if sleeping: #or bug():
+	if sleeping:
 		for faccia in facce:
 			if faccia.is_colliding() and lancio and $Timer.is_stopped():
 				$Timer.start()

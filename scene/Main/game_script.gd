@@ -32,16 +32,17 @@ func risultato(vet, name, Dname) -> void:
 			$AISpowner.lanciaDadi()
 			stato = "RrndAI"
 		
-		"RrndAI":#lettura dado
+		"RrndAI":#lettura dado 
 			await CameraTransition.animation($PlayerCamera,$TableCamera2)
 			rndNum = vet[0]
 			$PlayerSpowner.lanciaDadi()
+			CameraTransition.animation($PlayerCamera, $TableCamera1, 1, 1)
 			stato = "playerGame"
 		
 		"playerGame":
 			#$Display.setDisplay(vet, name)
-			CameraTransition.animation($PlayerCamera, $TableCamera1, 1, 1)
 			var i = 0
+			#while i < nDadiPlayer:
 			for ris in vet:
 				i += 1
 				if ris == rndNum:
@@ -59,11 +60,12 @@ func risultato(vet, name, Dname) -> void:
 			await CameraTransition.animation($PlayerCamera, $TableCamera1)
 			rndNum = vet[0]
 			$AISpowner.lanciaDadi()
+			CameraTransition.animation($PlayerCamera, $TableCamera2, 1,1)
 			stato = "AIGame"
 		
 		"AIGame":
-			CameraTransition.animation($PlayerCamera, $TableCamera2, 1,1)
 			var i = 0
+			#while i < nDadiAI:
 			for ris in vet:
 				i += 1
 				if ris == rndNum:
@@ -83,7 +85,38 @@ func objectTransition(from: Node3D, to: Node3D, nextStato):
 	tween.play()
 	await tween.finished
 	stato = nextStato
+	#risultato([0], "", "")
 	tween.stop()
+
+#func cameraAnim(from: Camera3D, to: Camera3D, AnimDuration: float = 1, DelayDuration : float = 0):
+#
+	#var tween = create_tween()
+	#camera3D.fov = from.fov
+	#camera3D.cull_mask = from.cull_mask
+	#
+	## Move our transition camera to the first camera position
+	#camera3D.global_transform = from.global_transform
+	#
+	## Make our transition camera current
+	#camera3D.current = true
+	#
+	#transitioning = true
+	#
+	## Move to the second camera, while also adjusting the parameters to
+	## match the second camera
+	#tween.stop()
+	#tween.tween_property(camera3D, "global_transform", to.global_transform , AnimDuration).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	#tween.tween_property(camera3D, "fov", to.fov , AnimDuration).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_delay(DelayDuration)
+	#tween.tween_property(camera3D, "global_transform", from.global_transform , AnimDuration).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	#tween.tween_property(camera3D, "fov", from.fov , AnimDuration).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	#tween.play()
+	#
+	## Wait for the tween to complete
+	#await tween.finished
+	#
+	## Make the second camera current
+	#from.current = true
+	#transitioning = false
 
 func loadSpawners(lnAI, lnPlayer):
 	$AISpowner.clearContainer()
